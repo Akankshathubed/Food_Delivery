@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Time Predictor</title>
+    <link rel="stylesheet" type="text/css" href='/static/style.css'>
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Website Title -->
+<div class="container">
+<h2 class='container-heading'><span class="heading_font">Food Delivery Time Predictor</span></h2>
+    <div class='description'>
+          <p>A Machine Learning Web Application that predicits Food Delivery Time, Built with Flask.</p><br>
+    </div>
+</div>
+<!-- Text Area -->
+<div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="POST">
+<label for="Delivery_person_Age">Delivery_person_Age</label>
+      <select id="Delivery_person_Age" name="Delivery_person_Age">
+          <option selected>----select option----</option>
+          <option value="0">15</option>
+          <option value="1">20</option>
+          <option value="2">21</option>
+          <option value="3">22</option>
+          <option value="4">23</option>
+          <option value="5">24</option>
+          <option value="6">25</option>
+          <option value="7">26</option>
+          <option value="9">27</option>
+          <option value="10">28</option>
+          <option value="11">29</option>
+          <option value="12">30</option>
+          <option value="13">31</option>
+          <option value="14">32</option>
+          <option value="15">33</option>
+          <option value="16">34</option>
+          <option value="17">35</option>
+          <option value="18">36</option>
+          <option value="19">37</option>
+          <option value="20">38</option>
+          <option value="21">39</option>
+          <option value="22">50</option>
+      </select><br>
+<label for="Delivery_person_Ratings">Delivery_person_Ratings</label>
+        <select id="Delivery_person_Ratings" name="Delivery_person_Ratings">
+          <option selected>----select option----</option>
+          <option value="0">1</option>
+          <option value="1">2.5</option>
+          <option value="2">2.6</option>
+          <option value="3">2.7</option>
+          <option value="4">2.8</option>
+          <option value="5">2.9</option>
+          <option value="6">3</option>
+          <option value="7">3.1</option>
+          <option value="8">3.2</option>
+          <option value="9">3.3</option>
+          <option value="10">3.4</option>
+          <option value="11">3.5</option>
+          <option value="12">3.6</option>
+          <option value="13">3.7</option>
+          <option value="14">3.8</option>
+          <option value="15">3.9</option>
+          <option value="16">4</option>
+          <option value="17">4.1</option>
+          <option value="18">4.2</option>
+          <option value="19">4.3</option>
+          <option value="20">4.4</option>
+          <option value="21">4.5</option>
+        </select><br>
+
+<label for="Restaurant_latitude">Restaurant_latitude</label>
+        <select id="Restaurant_latitude" name="Restaurant_latitude">
+          <option selected>----select option----</option>
+          <option value="0">-30.905562</option>
+          <option value="1">-30.902872</option>
+          <option value="2">-30.899584</option>
+          <option value="3">-30.893384</option>
+          <option value="4">-30.893244</option>
+          <option value="5">-30.892978</option>
+          <option value="6">-30.890184</option>
+        </select><br>
+
+
+<label for="Restaurant_longitude">Restaurant_longitude</label>
+        <select id="Restaurant_longitude" name="Restaurant_longitude">
+          <option selected>----select option----</option>
+          <option selected>----select option----</option>
+          <option value="0">-88.366217</option>
+          <option value="1">-88.352885</option>
+          <option value="2">-88.349843</option>
+          <option value="3">-88.322337</option>
+          <option value="4">-85.33982</option>
+          <option value="5">-85.335486</option>
+          <option value="6">-85.325731</option>
+        </select><br>
+
+<label for="Delivery_location_latitude">Delivery_location_latitude</label>
+        <select id="Delivery_location_latitude" name="Delivery_location_latitude">
+          <option selected>----select option----</option>
+          <option value="0">0.01</option>
+          <option value="1">0.02</option>
+          <option value="2">0.03</option>
+          <option value="3">0.04</option>
+          <option value="4">0.05</option>
+          <option value="5">0.06</option>
+          <option value="6">0.07</option>
+        </select><br>
+
+
+
+<label for="Delivery_location_longitude">Delivery_location_longitude</label>
+        <select id="Delivery_location_longitude" name="Delivery_location_longitude">
+          <option selected>----select option----</option>
+          <option value="0">0.01</option>
+          <option value="1">0.02</option>
+          <option value="2">0.03</option>
+          <option value="3">0.04</option>
+          <option value="4">0.05</option>
+          <option value="5">0.06</option>
+          <option value="6">0.07</option>
+       </select><br>
+
+<label for="Vehicle_condition">Vehicle_condition</label>
+       <select id="Vehicle_condition" name="Vehicle_condition">
+         <option selected>----select option----</option>
+         <option value="0">0</option>
+         <option value="1">1</option> 
+         <option value="3">2</option>  
+      </select><br>
+
+<label for="multiple_deliveries">multiple_deliveries</label>
+      <select id="multiple_deliveries" name="multiple_deliveries">
+         <option selected>----select option----</option>
+         <option value="0">0</option>
+         <option value="1">1</option> 
+         <option value="2">2</option>  
+         <option value="3">3</option>  
+      </select><br>
+
+<label for="year">year</label>
+      <select id="year" name="year">
+         <option selected>----select option----</option>
+         <option value="0">2022</option>
+         <option value="1">2022</option> 
+         <option value="3">2022</option>  
+         <option value="4">2022</option>
+         <option value="5">2022</option> 
+         <option value="6">2022</option> 
+      </select><br>
+
+<label for="month">month</label>
+      <select id="month" name="month">
+         <option selected>----select option----</option>
+         <option value="0">Febrauary</option>
+         <option value="1">Febrauary</option>
+         <option value="2">March</option> 
+         <option value="3">March</option> 
+         <option value="4">April</option> 
+        <option value="5">April</option> 
+      </select><br>
+
+<label for="day">day</label>
+    <select id="day" name="day">
+        <option selected>----select option----</option>
+        <option value="0">11</option>
+        <option value="1">04</option> 
+        <option value="3">05</option>  
+        <option value="4">12</option>
+        <option value="5">06</option> 
+        <option value="6">13</option> 
+    </select><br>
+
+<label for="order_prepare_time">order_prepare_time</label>
+    <select id="order_prepare_time" name="order_prepare_time">
+        <option selected>----select option----</option>
+        <option value="0">15.0</option>
+        <option value="1">5.0</option> 
+        <option value="3">15.0</option>  
+    </select><br>
+
+<label for="distance">distance</label>
+     <input type="text" name="distance	" id="distance	" placeholder="distance	" class="formbold-form-input" required="True" />
+    <br>
+
+
+<!--<div class="formbold-mb-3">distance: 
+      <label for="distance	" class="formbold-form-label" style="color:white;"><b> distance</b>	 </label>
+      <input type="text" name="distance	" id="distance	" placeholder="distance	" class="formbold-form-input" required="True" />
+</div>-->
+
+
+<label for="Weather">Weatherconditions</label>
+      <select id="Weather" name="Weather">
+          <option selected>----select option----</option>
+          <option value="0">Sunny</option>
+          <option value="1">Stromy</option> 
+          <option value="2">Sandstorms</option>  
+          <option value="3">windy</option> 
+          <option value="4">Cloudy</option> 
+      </select><br>
+
+<label for="Road_traffic_density">Road_traffic_density</label>
+      <select id="Road_traffic_density" name="Road_traffic_density">
+          <option selected>----select option----</option>
+          <option value="0">desc</option>
+          <option value="1">High</option> 
+          <option value="2">Jam</option>  
+          <option value="3">Low</option> 
+          <option value="4">Medium</option> 
+      </select><br>
+
+<label for="Type_of_order">Type_of_order</label>
+    <select id="Type_of_order" name="Type_of_order">
+          <option selected>----select option----</option>
+          <option value="0">Buffet</option>
+          <option value="1">Drinks</option> 
+          <option value="2">Meal</option>  
+          <option value="3">Snack</option> 
+    </select><br>
+
+<label for="Type_of_vehicle">Type_of_vehicle</label>
+    <select id="Type_of_vehicle" name="Type_of_vehicle">
+          <option selected>----select option----</option>
+          <option value="0">electric_scooter</option>
+          <option value="1">motorcycle</option> 
+          <option value="3">scooter</option>  
+    </select><br>
+
+<label for="festival">Festival</label>
+    <select id="festival" name="festival">
+          <option selected>----select option----</option>
+          <option value="0">No</option>
+          <option value="1">Yes</option> 
+    </select><br>
+
+
+<label for="city">City</label>
+    <select id="city" name="city">
+      <option selected>----select option----</option>
+      <option value="0">Metropolitian </option>
+      <option value="1">Urban </option> 
+      <option value="3">Semi-Urban </option> 
+    </select><br>
+
+<label for="city_code">City_code</label>
+    <select id="city_code" name="city_code">
+          <option selected>----select option----</option>
+          <option value="0">INDO</option>
+          <option value="1">BANG</option> 
+          <option value="3">CHEN</option> 
+          <option value="4">COIMB</option>
+          <option value="5">JAP</option> 
+          <option value="6">AGR</option> 
+    </select><br>
+
+<input type="submit" class="my-cta-button" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <h3 style="color:rgba(19, 5, 5, 0.929);"> {{prediction}}</h3>
+
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <div class='footer'>
+        <p class='footer-description'>Made By Akanksha Thube  And Rutuja Shivale</p>
+    </div>
+
+</body>
+
+</html>
